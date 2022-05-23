@@ -1,25 +1,33 @@
 import React from 'react';
-import Header from './Header';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import './App.css';
-import Home from './Home';
-import Checkout from './Checkout';
+import Home from './components/Home';
+import Checkout from './components/Checkout';
 import { Route , Switch } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <Header/>
-      <Switch>
-        <Route exact path='/'>
-          <Home/>
-        </Route>
-        <Route exact path='/checkout'>
-          <Checkout/>
-        </Route>
-      </Switch>
-    
-    </div>
-  );
+class App extends React.Component{
+  state={
+    basket:[],
+    products:[]
+  }
+
+  render(){    
+    return (
+      <div className="App">
+        <Header user="Emad"/>
+        <Switch>
+          <Route exact path='/'>
+            <Home/>
+          </Route>
+          <Route exact path='/checkout'>
+            <Checkout/>
+          </Route>
+        </Switch>
+        <Footer/>
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -42,3 +42,12 @@
 .product__rating_star{
     color:gold;
 }
+
+.product__title{
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.product__description{
+    text-align: justify;
+    text-justify: inter-word;    
+}
