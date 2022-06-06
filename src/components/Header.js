@@ -49,7 +49,7 @@ function Header(props) {
             </div>
             <div className='header__optionBasket'>
                 <Link to="/checkout"><ShoppingBasketIcon/></Link>
-                <span className='header__option_lineTwo Header__basket_count'>{basket.length}</span>
+                <span className='header__option_lineTwo Header__basket_count'>{basket?.length}</span>
             </div>
 
         </div>

@@ -19,7 +19,22 @@ import useStateValue from '../StateProvider';
                 }
             })
         };
-            
+
+        const removeFromBasket =  ()=>{
+            //dispatch item to data layer (basket)
+            dispatch({
+                type:'REMOVE_FROM_BASKET',
+                item:{
+                    id:props.id,
+                    title:props.title,
+                    description:props.description,
+                    price:props.price,
+                    rating:props.rating,
+                    image:props.image
+                }
+            })
+        }
+
         return (
             <div className='product'>
             <div className='product__info'>
@@ -29,7 +44,7 @@ import useStateValue from '../StateProvider';
                     <small>$</small>    
                     <strong>{props.price}</strong>
                 </p>
-                <div class="product__rating">
+                <div className="product__rating">
                     {
                         Array(props.rating).fill().map(
                             (_,i)=>(<p><StarIcon className='product__rating_star'/></p>)
@@ -43,7 +58,12 @@ import useStateValue from '../StateProvider';
                 src={props.image}
                 alt=""
             />
-            <button onClick={addToBasket}>Add to Basket</button>
+            {
+                basket.find((element)=>(element.id === props.id))?<button onClick={removeFromBasket}>Remove From Basket</button> : <button onClick={addToBasket}>Add to Basket</button>
+                    
+                
+            }
+            
             </div>
         )
     }
