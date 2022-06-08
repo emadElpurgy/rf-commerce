@@ -23,14 +23,16 @@ function Header(props) {
             <SearchIcon className='header__searchIcon'/>
         </div>
         <div className="header__nav">
-            <div className="header__option">
-                <span className='header__option_lineOne'>
-                    Hello, {props.user}
-                </span>
-                <span className='header__option_lineTwo'>
-                    sign in
-                </span>
-            </div>
+            <Link to="/login">
+                <div className="header__option">
+                    <span className='header__option_lineOne'>
+                        Hello, {props.user}
+                    </span>
+                    <span className='header__option_lineTwo'>
+                        sign in
+                    </span>
+                </div>
+            </Link>
             <div className="header__option">
                 <span className='header__option_lineOne'>
                     Returns
