@@ -25,7 +25,7 @@ class App extends React.Component{
             <Checkout/>
           </Route>
           <Route exact path='/login'>
-            <Login/>
+            <Login />
           </Route>
         </Switch>
         <Footer/>

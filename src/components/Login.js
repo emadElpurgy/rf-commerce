@@ -1,21 +1,31 @@
 import React , {useState} from 'react';
 import '../css/Login.css';
 import { Link } from 'react-router-dom';
-import { auth, createUser } from '../firebase';
-
+import { auth, createUser , logIn} from '../firebase';
+import history from '../History';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const siginIn = e=>{
         e.preventDefault();
+        logIn(auth,email,password).then((auth)=>{
+            console.log(auth);
+            if(auth){
+                history.push('/');
+            }
+        }).catch(error=>alert(error.message));
         //firebase code
     }
     const register = e=>{
         e.preventDefault();
         //firebase code
+        console.log('ssss');
         createUser(auth,email,password)
         .then((auth)=>{
             console.log(auth);
+            if(auth){
+                history.push('/');                
+            }
         })
         .catch(error=>alert(error.message));
     }
