@@ -4,12 +4,13 @@ import Subtotal from './Subtotal';
 import CheckoutProduct from './CheckoutProduct';
 import useStateValue from '../StateProvider';
 function Checkout() {
-  const[{basket}] = useStateValue();
+  const[{basket,user}] = useStateValue();
   return (
     <div className='checkout'>
         <div class="checkout__left">
             <img class="checkout__ad" src="https://www.wordstream.com/wp-content/uploads/2021/07/banner-ads-examples-aws.jpg" alt=""/>
             <div>
+                <h3>Hello, {user?.email}</h3>
                 <h2 className='checkout__title'>Your Shopping Basket</h2>
             </div>            
             {

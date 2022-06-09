@@ -1,6 +1,7 @@
 export const initialState = {
     basket:[],
     basketTotal : (basket)=>(basket?.reduce((amount,item) => Number(Number(amount) + Number(item.price)) ,0)),
+    user:null
 };
 
 //selector (not working)
@@ -17,7 +18,12 @@ const reducer = (state,action)=>{
                 return {
                     ...state,
                     basket:[...state.basket.filter(item=>item.id !== action.item.id)],
-                };            
+                };
+            case 'SET_USER':
+                return{
+                    ...state,
+                    user:action.user
+                };
         default:
             return state;
     }
