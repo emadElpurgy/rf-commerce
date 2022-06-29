@@ -5,7 +5,7 @@ export const initialState = {
 };
 
 //selector (not working)
-export const getBasketTotalValue = (basket)=>basket?.reduce((amount,item) => (amount + item.price) ,0);
+//export const getBasketTotalValue = (basket)=>basket?.reduce((amount,item) => (amount + item.price) ,0);
     
 const reducer = (state,action)=>{
     switch(action.type){
